@@ -1,0 +1,8 @@
+---
+- name: Get the AWS Account ID
+  shell: aws sts get-caller-identity --query Account --output text
+  register: get_caller_identity
+
+- fail:
+    msg: "Runtime AWS account ID {{ get_caller_identity.stdout }} must match predefined account number {{ aws_account_id }}"
+  when:  get_caller_identity.stdout != aws_account_id

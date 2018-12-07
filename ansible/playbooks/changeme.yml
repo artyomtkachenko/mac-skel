@@ -1,0 +1,14 @@
+---
+- hosts: all
+  connection: local
+  gather_facts: no
+  roles:
+    - checks
+  post_tasks:
+    - name: Run cloudformation
+      cloudformation:
+        stack_name: "{{ changeme }}-{{ stack_env }}"
+        state: present
+        template: "{{ cloudformation_dir }}/changeme.yml"
+        template_parameters:
+          ChangeMe: "{{ changeme }}"
