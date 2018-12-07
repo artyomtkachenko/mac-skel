@@ -8,7 +8,8 @@ NC     := \033[0m # No Color
 
 AWS_REGION  := ap-southeast-2
 ECR_REGISTRY_ID := 123456789012
-BUILD_TOOLS := $(ECR_REGISTRY_ID).dkr.ecr.ap-southeast-2.amazonaws.com/<changeme>
+# BUILD_TOOLS := $(ECR_REGISTRY_ID).dkr.ecr.ap-southeast-2.amazonaws.com/<changeme>
+BUILD_TOOLS := artyomtkachenko/tools
 BUILD_TYPE ?= local
 
 DOCKER_RUN := docker run \
